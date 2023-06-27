@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Summary</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<style>
+  body {
+      background-color: #e5e5e5;
+  }
+  h1{
+    text-align: center;
+  }
+
+  .head {
+      border-bottom: 2px solid;
+      background-color: #212529;
+      color: white;
+      padding: 10px;
+  }
+
+  .logo {
+      height: 55px;
+      width: 50px;
+      margin-right: 10px;
+  }
+
+  .title {
+      margin: 0;
+      font-size: 24px;
+  }
+
+  .account-holder {
+      margin-bottom: 20px;
+  }
+
+  .account-status {
+      margin-bottom: 10px;
+  }
+
+  .table thead {
+      background-color: #212529;
+      color: white;
+  }
+
+  .transaction-form {
+      margin-bottom: 20px;
+  }
+
+  .transaction-buttons {
+      margin-top: 10px;
+  }
+
+  .transaction-history {
+      background-color: white;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 5px;
+  }
+
+  .transaction-history h4 {
+      margin-top: 0;
+  }
+
+  .transaction-history ul {
+      padding-left: 0;
+      list-style-type: none;
+  }
+
+  .transaction-history li {
+      padding: 5px 0;
+      border-bottom: 1px solid #dee2e6;
+  }
+
+  .interest-earned,
+  .overdraft-protection,
+  .account-fees {
+      font-weight: bold;
+      margin-top: 20px;
+  }
+  #transactionHistory {
+    list-style: none;
+  }
+</style>
+  
+
+</style>
+<body>
+  
+    <section class="head">
+        <header class="pt-2 pb-2">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <img src="logo-removebg-preview.png" alt="" height="55" width="50">
+                    <h1 class="nav col-12 col-lg-auto ms-5 me-auto mb-2 justify-content-center mb-md-0 h2 text-light">E-Banking</h1>
+                    <button type="button" class="btn btn-secondary me-3" id="homeBtn">Home</button>
+                    <button type="button" class="btn btn-secondary me-3" id="homeBtn">About Us</button>
+                    <button type="button" class="btn btn-secondary me-3" id="homeBtn">Support</button>
+                    <div class="dropdown text-end">
+                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="bacground.webp" alt="mdo" width="35" height="35" class="rounded-circle">
+                        </a>
+                        <ul class="dropdown-menu text-small">
+                            <li><a class="dropdown-item" href="Login.html">Sign out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+    <br>
+    <div class="justify-content-center ">
+        <h1>Account Summary</h1>
+        <hr>
+    </div>
+    <br>
+    <div class="container">
+
+        <h5 >Account Holder: John Doe</h5>
+        <h5>Account Status: Active</h5>
+        <hr>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Account Number</th>
+                    <th>Account Type</th>
+                    <th>Balance</th>
+                </tr>
+                <br>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1234567890</td>
+                    <td>Savings</td>
+                    <td id="savingsBalance">$5,000.00</td>
+                </tr>
+                <tr>
+                    <td>9876543210</td>
+                    <td>Checking</td>
+                    <td id="checkingBalance">$2,500.00</td>
+                </tr>
+                <tr>
+                    <td>4567890123</td>
+                    <td>Investment</td>
+                    <td id="investmentBalance">$10,000.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="form-group">
+            <label for="transactionAmount">Transaction Amount:</label>
+            <input type="number" class="form-control" id="transactionAmount">
+        </div>
+
+        <br>
+        <button type="button" class="btn btn-primary" id="depositBtn">Deposit</button>
+        <button type="button" class="btn btn-danger" id="withdrawBtn">Withdraw</button>
+
+        <br>
+        <br>
+
+        
+
+        <h5>Interest Earned:</h5>
+        <p id="interestEarned">$0.00</p>
+
+        <h5>Overdraft Protection:</h5>
+        <p id="overdraftProtection">$500.00</p>
+
+        <h5>Account Fees:</h5>
+        <p id="accountFees">$10.00</p>
+
+        <h4>Transaction History:</h4>
+        <ul id="transactionHistory"></ul>
+    </div>
+
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var savingsBalance = 5000.00;
+            var checkingBalance = 2500.00;
+            var investmentBalance = 10000.00;
+            var interestRate = 0.05; // 5%
+            var overdraftProtectionAmount = 500.00;
+            var accountFees = 10.00;
+
+            function updateBalance(account, balance) {
+                $('#' + account + 'Balance').text('$' + balance.toFixed(2));
+            }
+
+            function performTransaction(account, amount) {
+                switch (account) {
+                    case 'savings':
+                        savingsBalance += amount;
+                        updateBalance('savings', savingsBalance);
+                        break;
+                    case 'checking':
+                        checkingBalance += amount;
+                        updateBalance('checking', checkingBalance);
+                        break;
+                    case 'investment':
+                        investmentBalance += amount;
+                        updateBalance('investment', investmentBalance);
+                        break;
+                }
+                updateTransactionHistory(account, amount);
+            }
+
+            function calculateInterest(account, rate) {
+                return account * rate;
+            }
+
+            function calculateAccountFees() {
+                return accountFees;
+            }
+
+            function validateTransaction(amount) {
+                if (isNaN(amount) || amount <= 0) {
+                    alert('Invalid transaction amount!');
+                    return false;
+                }
+                return true;
+            }
+
+            function updateTransactionHistory(account, amount) {
+                var transactionType = amount >= 0 ? 'Deposit' : 'Withdrawal';
+                var transactionAmount = Math.abs(amount).toFixed(2);
+                var transaction = transactionType + ': $' + transactionAmount;
+
+                var listItem = $('<li>').text(transaction);
+                $('#transactionHistory').prepend(listItem);
+            }
+
+            function updateInterestEarned() {
+                var savingsInterest = calculateInterest(savingsBalance, interestRate);
+                $('#interestEarned').text('$' + savingsInterest.toFixed(2));
+            }
+
+            function updateOverdraftProtection() {
+                $('#overdraftProtection').text('$' + overdraftProtectionAmount.toFixed(2));
+            }
+
+            function updateAccountFees() {
+                $('#accountFees').text('$' + accountFees.toFixed(2));
+            }
+
+            $('#depositBtn').click(function() {
+                var amount = parseFloat($('#transactionAmount').val());
+                if (validateTransaction(amount)) {
+                    performTransaction('savings', amount);
+                    updateInterestEarned();
+                    updateOverdraftProtection();
+                    updateAccountFees();
+                }
+            });
+
+            $('#withdrawBtn').click(function() {
+                var amount = parseFloat($('#transactionAmount').val());
+                if (validateTransaction(amount)) {
+                    if (amount <= savingsBalance) {
+                        performTransaction('savings', -amount);
+                        updateInterestEarned();
+                        updateOverdraftProtection();
+                        updateAccountFees();
+                    } else {
+                        alert('Insufficient balance in the savings account!');
+                    }
+                }
+            });
+
+            $('#homeBtn').click(function() {
+                // Redirect to dashboard
+                window.location.href = 'dashboard.html';
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>

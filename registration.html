@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="registrationstyle.css">
+</head>
+<body>
+    <div class="loginBox">
+		<div class="glass">
+			<h3>Register</h3>
+			<form id="registration-form">
+				<div class="inputBox">
+					<input type="text" name="fullName" placeholder="Full Name" id="fullNameInput">
+				</div>
+				<div class="inputBox">
+					<input type="email" name="email" placeholder="Email Address" id="emailInput">
+				</div>
+				<div class="inputBox">
+					<input type="text" name="address" placeholder="Address" id="addressInput">
+				</div>
+				<div class="inputBox">
+					<input type="tel" name="contactNumber" placeholder="Contact Number" id="contactNumberInput">
+				</div>
+				<div class="inputBox">
+					<input type="date" name="birthdate" placeholder="Birthdate" id="birthdateInput">
+				</div>
+				<div class="submit">
+					<button class="btn" onclick="register(event)">Register</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<script src="registration.js"></script>
+</body>
+</html>

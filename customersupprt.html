@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Support</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+    .head {
+        border-bottom: 2px solid;
+        background-color: #212529;
+        color: white;
+        padding: 10px;
+    }
+    .chat{
+        border-top: 2px solid grey;
+        border-left: 2px solid grey;
+        border-bottom: 2px solid grey;
+        border-radius: 10px;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    .submit{
+        border: 2px solid grey;
+        border-radius: 10px;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+</style>
+<body>
+    <section class="head">
+        <header class="pt-2 pb-2">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <img src="logo-removebg-preview.png" alt="" height="55" width="50">
+                    <h1 class="nav col-12 col-lg-auto ms-5 me-auto mb-2 justify-content-center mb-md-0 h2 text-light">E-Banking</h1>
+                    <button type="button" class="btn btn-secondary me-3" id="homeBtn">Home</button>
+                    <button type="button" class="btn btn-secondary me-3" id="aboutBtn">About Us</button>
+                    <button type="button" class="btn btn-secondary me-3" id="transactionsBtn">Transactions</button>
+                    <div class="dropdown text-end">
+                        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="bacground.webp" alt="mdo" width="35" height="35" class="rounded-circle">
+                        </a>
+                        <ul class="dropdown-menu text-small">
+                            <li><a class="dropdown-item" href="Login.html">Sign out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h1 class="mt-5 mb-3">Customer Support</h1>
+            <div class="row">
+                <div class="chat col-md-6">
+                    <h2 class="">Chat Support</h2>
+                    <p>Contact our support team for immediate assistance.</p>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Live Chat</h5>
+                            <p class="card-text">Chat with a support representative in real-time.</p>
+                            <a href="#" class="btn btn-primary">Start Chat</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="submit col-md-6">
+                    <h2>Submit a Request</h2>
+                    <p>If you have a non-urgent issue or question, you can submit a support request.</p>
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="footer bg-dark text-light text-center py-3 mt-5">
+            <div class="container">
+                &copy; 2023 E-Banking. All rights reserved.
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript code goes here
+        const homeBtn = document.getElementById("homeBtn");
+        const aboutBtn = document.getElementById("aboutBtn");
+        const transactionsBtn = document.getElementById("transactionsBtn");
+
+        homeBtn.addEventListener("click", () => {
+            // Redirect to home page
+            window.location.href = "dashboard.html";
+        });
+
+        aboutBtn.addEventListener("click", () => {
+            // Redirect to about page
+            window.location.href = "about.html";
+        });
+
+        transactionsBtn.addEventListener("click", () => {
+            // Redirect to transactions page
+            window.location.href = "dashboard.html";
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ub3TLcp7aSFS5J29ERqM08D7pGGnvxzx1FExktgUOozLYcG6JZBsURMSeKQFLIh4" crossorigin="anonymous"></script>
+</body>
+</html>

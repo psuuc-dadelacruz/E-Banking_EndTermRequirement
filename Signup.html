@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="signupstyle.css">
+</head>
+<body>
+	<div class="loginBox">
+		<div class="glass">
+			<h3>Sign in Here</h3>
+			<form id="signup-form">
+				<div class="inputBox">
+					<input type="email" name="email" placeholder="Email" id="email">
+					<span><i class="fa fa-user"></i></span>
+				</div>
+				<div class="inputBox">
+					<input type="email" name="confirmEmail" placeholder="Type your Email again" id="confirmEmail">
+					<span><i class="fa fa-user"></i></span>
+				</div>
+				<div class="inputBox">
+					<input type="password" name="password" placeholder="Password" id="password">
+					<span><i class="fa fa-lock"></i></span>
+				</div>
+				<div class="inputBox">
+					<input type="password" name="confirmPassword" placeholder="Type your password again" id="confirmPassword">
+					<span><i class="fa fa-lock"></i></span>
+				</div>
+				<div class="submit">
+					<button class="btn" onclick="signup(event)">Sign Up</button>
+				</div>
+			</form>
+			<h5>Sign Up Using</h5>
+			<ul>
+				<li>
+					<a href="#"><i class="fa fa-facebook"></i></a>
+				</li>
+				<li>
+					<a href="#"><i class="fa fa-google"></i></a>
+				</li>
+			</ul>
+			<p class="lgin">Already have an account? <a href="Login.html">Log In.</a></p>
+		</div>
+	</div>
+	
+	<script src="signup.js"></script>
+</body>
+</html>
